@@ -1,0 +1,11 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 8080
+    },
+    "database": {
+        "path": "../../.tig/db"
+    },
+    "environment": "development",
+    "log_level": "debug"
+}

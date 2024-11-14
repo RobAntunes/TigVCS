@@ -1,0 +1,11 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 8080
+    },
+    "database": {
+        "path": "/tmp/badger"
+    },
+    "environment": "development",
+    "log_level": "debug"
+}

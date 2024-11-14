@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Main Tig application
+  tig:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app  # Mount current directory for live code updates
+    environment:
+      - ENV=development
+      - LOG_LEVEL=debug
+    depends_on:
+      - badger
+
+  # BadgerDB for local content storage
+  badger:
+    image: dgraph/standalone:latest
+    ports:
+      - "8000:8000"
+      - "9080:9080"
+    volumes:
+      - badger_data:/dgraph
+    environment:
+      - BADGER_MODE=memory
+
+volumes:
+  badger_data:
